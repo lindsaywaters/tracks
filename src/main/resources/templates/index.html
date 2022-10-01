@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<head th:replace="fragments/mainTheme :: head"></head>
+<body>
+<header th:replace="fragments/mainTheme :: header"></header>
+<a th:replace="fragments/mainTheme::backgroundImage"></a>
+<div style="padding: 100px">
+    <a th:href="@{report/createReport}"  class="btn btn-lg active button" style="position: absolute; background: var(--color3)" role="button" aria-pressed="true">Report Bear Sighting</a>
+</div>
+</body>
+</html>

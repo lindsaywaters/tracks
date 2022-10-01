@@ -1,0 +1,41 @@
+:root{
+    --colorBlack:#000000;
+    --color1:#101726;
+    --color2:#253540;
+    --color3:#7E8C7B;
+    --color4:#BDBFA8;
+    --color5:#F2ECEB;
+}
+body{
+color: var(--color2)
+font-weight: bold;
+}
+.backgroundImage{
+opacity: 50%;
+}
+.nav-item{
+color: var(--color2)
+font-weight: bold;
+}
+.nav-link{
+color: var(--color2)
+font-weight: bold;
+}
+.navbar{
+
+    width: 100vp;
+    padding-right: 30px;
+    padding-left: 30px;
+    background: var(--color3) ;
+
+.formStyle{
+    margin-left: auto;
+    margin-right: auto;
+}
+
+button{
+background: var(--color3)
+}
+
+
+}

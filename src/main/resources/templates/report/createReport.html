@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<head th:replace="fragments/mainTheme :: head"></head>
+<body>
+<header th:replace="fragments/mainTheme :: header"></header>
+<a th:replace="fragments/mainTheme::backgroundImage"></a>
+<div class="formStyle">
+    <form method="post" th:action="@{/report/submitReport}" style="padding-top: 50px; padding-left: 20px; position: absolute; opacity: 75%;">
+        <div class="form-group p-2">
+            <label>Date
+                <input type="date" id="sightingDate" name="sightingDate" th:value="*{sightingDate}" />
+            </label>
+        </div>
+        <div class="form-group p-2">
+            <label>Time
+                <input type="time" id="sightingTime" name="sightingTime" th:value="*{sightingTime}" />
+            </label>
+        </div>
+        <div class="form-group p-2">
+            <p>Details</p>
+            <textarea rows="6" cols="30" type="text" id="description" name="description" th:value="*{description}"></textarea>
+
+        </div>
+        <button type="submit" class="btn" style="background-color: var(--color3)">Submit</button>
+    </form>
+</div>
+
+
+</body>
+</html>

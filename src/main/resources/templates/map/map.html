@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<!--
+ @license
+ Copyright 2019 Google LLC. All Rights Reserved.
+ SPDX-License-Identifier: Apache-2.0
+-->
+
+<head th:replace="fragments/mainTheme::head">
+    <title>Bear Map</title>
+
+</head>
+<body>
+<header th:replace="fragments/mainTheme::header"></header>
+<a th:replace="fragments/mainTheme::backgroundImage"></a>
+<h3>Bear Map</h3>
+<!--The div element for the map -->
+<div id="map"></div>
+
+<!--
+ The `defer` attribute causes the callback to execute after the full HTML
+ document has been parsed. For non-blocking uses, avoiding race conditions,
+ and consistent behavior across browsers, consider loading using Promises
+ with https://www.npmjs.com/package/@googlemaps/js-api-loader.
+-->
+<script
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD2rxjydRFoCuzGbgncFR7yLPlUz4jghB8&callback=initMap&v=weekly"
+        defer
+></script>
+</body>
+</html>
