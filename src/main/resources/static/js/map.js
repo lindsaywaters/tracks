@@ -1,15 +1,7 @@
 let sightings = [];
 
 
-function geoCodeSightings(sightings) {
-for (let i = 0; i < sightings.length; i ++){
-    let geocode = new google.maps.Geocoder(sightings[i].address);
-    return geocode
-}
 
-
-
-}
 // Initialize and add the map
 function initMap() {
   // The location of Uluru
@@ -26,7 +18,7 @@ function initMap() {
   });
 }
 
-window.initMap = initMap;
+
 // The location of Uluru
 //const uluru = { lat: -25.344, lng: 131.031 };
 //// The map, centered at Uluru
@@ -35,3 +27,4 @@ window.initMap = initMap;
 //  center: uluru,
 //});
 
+window.initMap = initMap;
