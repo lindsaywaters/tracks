@@ -1,7 +1,19 @@
+let sightings = [];
+
+
+function geoCodeSightings(sightings) {
+for (let i = 0; i < sightings.length; i ++){
+    let geocode = new google.maps.Geocoder(sightings[i].address);
+    return geocode
+}
+
+
+
+}
 // Initialize and add the map
 function initMap() {
   // The location of Uluru
-  const indianMountainLake = { lat: 41.001, lng: -75.536 };
+  const indianMountainLake = { lat: 40.99933071055133, lng: -75.5249752306438 };
   // The map, centered at Uluru
   const map = new google.maps.Map(document.getElementById("map"), {
     zoom: 12,
@@ -22,3 +34,4 @@ window.initMap = initMap;
 //  zoom: 4,
 //  center: uluru,
 //});
+

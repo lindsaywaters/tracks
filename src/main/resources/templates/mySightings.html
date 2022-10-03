@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<head th:replace="fragments/mainTheme :: head"></head>
+<body>
+<header th:replace="fragments/mainTheme :: header"></header>
+<a th:replace="fragments/mainTheme::backgroundImage"></a>
+<div >
+  <table class="table table-striped" style="padding: 100px; position:absolute; margin-left: auto; margin-right: auto;  opacity: 75%">
+    <tr style="font-weight: bold">
+      <td>Date</td>
+      <td>Time</td>
+      <td>Street Address</td>
+      <td>City</td>
+      <td>State</td>
+      <td>Zipcode</td>
+      <td>Description</td>
+
+    </tr>
+    <tr th:each="sighting:${sightings}">
+      <td th:text="${sighting.sightingDate}"></td>
+      <td th:text="${sighting.sightingTime}"></td>
+      <td th:text="${sighting.address1}"></td>
+      <td th:text="${sighting.city}"></td>
+      <td th:text="${sighting.state}"></td>
+      <td th:text="${sighting.zipcode}"></td>
+      <td th:text="${sighting.description}"></td>
+    </tr>
+  </table>
+
+
+</div>
+</body>
+</html>

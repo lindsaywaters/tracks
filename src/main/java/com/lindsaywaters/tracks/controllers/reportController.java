@@ -29,7 +29,7 @@ public class reportController {
 
     @PostMapping("submitReport")
     public String processCreateReport(HttpServletRequest request, Model model, Sighting sighting){
-        Sighting newSighting = new Sighting(sighting.getSightingDate(),sighting.getSightingTime(),sighting.getDescription());
+        Sighting newSighting = new Sighting(sighting.getSightingDate(), sighting.getSightingTime(), sighting.getDescription(), sighting.getAddress1(), sighting.getAddress2(), sighting.getCity(), sighting.getState(), sighting.getZipcode(), sighting.getLocation() ) ;
         sightingRepository.save(newSighting);
 
         return "report/reportConfirmation";

@@ -6,23 +6,55 @@
 <a th:replace="fragments/mainTheme::backgroundImage"></a>
 <div class="formStyle">
     <form method="post" th:action="@{/report/submitReport}" style="padding-top: 50px; padding-left: 20px; position: absolute; opacity: 75%;">
-        <div class="form-group p-2">
-            <label>Date
-                <input type="date" id="sightingDate" name="sightingDate" th:value="*{sightingDate}" />
-            </label>
-        </div>
-        <div class="form-group p-2">
-            <label>Time
-                <input type="time" id="sightingTime" name="sightingTime" th:value="*{sightingTime}" />
-            </label>
-        </div>
-        <div class="form-group p-2">
-            <p>Details</p>
-            <textarea rows="6" cols="30" type="text" id="description" name="description" th:value="*{description}"></textarea>
 
+        <div class="form-group p-2">
+            <label>Date:
+                <input type="date" id="sightingDate" name="sightingDate" th:value="*{sightingDate}">
+            </label>
         </div>
+        <div class="form-group p-2">
+            <label>Date:
+                <input type="time" id="sightingTime" name="sightingTime" th:value="*{sightingTime}">
+            </label>
+        </div>
+
+        <div class="form-group p-2">
+            <label>Address
+                <input type="text" id="address1" name="address1" th:value="${address1}" />
+            </label>
+        </div>
+        <div class="form-group p-2">
+            <label>Address Line 2
+                <input type="text" id="address2" name="address2" th:value="${address2}" />
+            </label>
+        </div>
+        <div class="form-group p-2">
+            <label>City
+                <input type="text" id="city" name="city" th:value="${city}" />
+            </label>
+        </div>
+        <div class="form-group p-2">
+            <label>State
+                <input type="text" id="state" name="state" th:value="${state}" />
+            </label>
+        </div>
+        <div class="form-group p-2">
+            <label>Zipcode
+                <input type="text" id="zipcode" name="zipcode" th:value="${zipcode}" />
+            </label>
+        </div>
+        <div>
+            <textarea rows="5" type="text" id="description" name="description" th:value="${description}">
+
+            </textarea>
+        </div>
+        <div class="form-group">
+            <input type="hidden" th:value="${location}">
+        </div>
+
         <button type="submit" class="btn" style="background-color: var(--color3)">Submit</button>
     </form>
+
 </div>
 
 
