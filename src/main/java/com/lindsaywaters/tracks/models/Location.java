@@ -30,9 +30,25 @@ public class Location {
 
     @Override
     public String toString() {
-        return "Location{" +
-                "lat:" + lat +
-                ", lng:" + lng +
-                '}';
+        return "{ lat: "+ lat + ", lng: " + lng + " }";
     }
+
 }
+//  for(let i = 0; i < locations.length; i++){
+//        // The marker, positioned at Uluru
+//        let location = location[i];
+//        const marker = new google.maps.Marker({
+//        position: location,
+//        map: map,
+//        });
+//        }
+//        const markers = locations.map((position, i) => {
+////    const label = labels[i % labels.length];
+//
+//        const marker = new google.maps.Marker({
+//        position,
+//        icon: icon;
+//
+//        });
+//        });
+//        }

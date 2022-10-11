@@ -20,8 +20,14 @@ public class homeController {
     @GetMapping("index")
     public String index(HttpServletRequest request, Model model){
 
-        return ("user/index");
+        return ("index");
     }
+
+    @GetMapping("login")
+    public  String login(HttpServletRequest request, Model model){
+        return ("login");
+    }
+
 
 
     @GetMapping("mySightings")
@@ -33,4 +39,6 @@ public class homeController {
 
         return "mySightings";
     }
+
+
 }

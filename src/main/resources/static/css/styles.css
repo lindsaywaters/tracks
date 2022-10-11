@@ -37,5 +37,9 @@ button{
 background: var(--color3)
 }
 
+.absolute{
+position: absolute;
+}
+
 
 }

@@ -17,24 +17,37 @@
     <link rel="stylesheet" type="text/css" th:href="@{/css/map.css}" />
     <link rel="stylesheet" type="text/css" th:href="@{/css/styles.css}" />
     <script th:src="@{/js/map.js}"></script>
+    <script defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD2rxjydRFoCuzGbgncFR7yLPlUz4jghB8&callback=initMap"></script>
+
+
 </head>
 <body>
+<script>
+        let sightingLocations = [[${locations}]];
+    console.log(sightingLocations);
+    </script>
 <header th:replace="fragments/mainTheme::header"></header>
 <a th:replace="fragments/mainTheme::backgroundImage"></a>
 <h3>Bear Map</h3>
 <!--The div element for the map -->
 <div id="map"></div>
 
-<!--
+<div>
+    <table class="table">
+        <tr class="content" th:each="sighting:${sightings}">
+            <td type="hidden" th:field="${sighting.location}"></td>
+            <td th:text="${sighting.sightingDate}"></td>
+            <td th:text="${sighting.sightingTime}"></td>
+            <td th:text="${sighting.description}"></td>
+        </tr>
+    </table>
+</div>
+<!--1
  The `defer` attribute causes the callback to execute after the full HTML
  document has been parsed. For non-blocking uses, avoiding race conditions,
  and consistent behavior across browsers, consider loading using Promises
  with https://www.npmjs.com/package/@googlemaps/js-api-loader.
 -->
-<script
-        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD2rxjydRFoCuzGbgncFR7yLPlUz4jghB8&callback=initMap&v=weekly"
-        defer
-></script>
 
 
 </body>
