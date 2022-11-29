@@ -5,8 +5,12 @@
 <script th:src="@{/js/user.js}"></script>
 <header th:replace="fragments/mainTheme :: header"></header>
 <a th:replace="fragments/mainTheme::backgroundImage"></a>
+<div>
+    <p th:text="{user.username}"></p>
+</div>
 <div style="padding: 100px">
     <a th:href="@{report/createReport}"  class="btn btn-lg active button" style="position: absolute; background: var(--color3)" role="button" aria-pressed="true">Report Bear Sighting</a>
 </div>
+
 </body>
 </html>

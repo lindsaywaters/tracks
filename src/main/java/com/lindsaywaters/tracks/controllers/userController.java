@@ -2,7 +2,9 @@ package com.lindsaywaters.tracks.controllers;
 
 import com.lindsaywaters.tracks.data.UserRepository;
 import com.lindsaywaters.tracks.models.User;
+import com.lindsaywaters.tracks.models.dto.LoginDTO;
 import com.lindsaywaters.tracks.models.dto.NewUserDTO;
+import com.mysql.cj.CacheAdapter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -13,14 +15,35 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
+import java.util.Optional;
 
 @Controller
-@RequestMapping("user")
+
 public class userController {
 
     @Autowired
+    static
     UserRepository userRepository;
+    private static final String userInfo = "user";
+    public static User getUserInformation(HttpSession session){
+        Integer userID = (Integer) session.getAttribute(userInfo);
+        if(userID == null){
+            return null;
+        }
+        Optional<User> user = userRepository.findById(userID);
+        if(user.isEmpty()){
+            return null;
+        }
+        return user.get();
+    }
+    private static void setUserInSession(HttpSession session, User user){
+        session.setAttribute(userInfo, user.getId());
+    }
+
+
+
     @GetMapping("newUserForm")
     public String newUserForm(HttpServletRequest request, Model model){
         model.addAttribute(new NewUserDTO());
@@ -36,13 +59,23 @@ public class userController {
         }
         User newUser = new User(newUserDTO.getUsername(),newUserDTO.getPassword(),newUserDTO.getEmail(), newUserDTO.getZipcode());
         userRepository.save(newUser);
+        setUserInSession(request.getSession(),newUser);
         return "redirect:/user/userDashboard";
     }
 
-    @GetMapping("userDashboard")
-    public String userDashboard(HttpServletRequest request, Model model) {
+//    @GetMapping("userDashboard")
+//    public String userDashboard(HttpServletRequest request, Model model) {
+//        User user = getUserInformation(request.getSession());
+//        return "user/userDashboard";
+//
+//    }
 
-        return "user/userDashboard";
-
+    @GetMapping("login")
+    public String login(HttpServletRequest request, Model model){
+        model.addAttribute(new LoginDTO());
+        model.addAttribute("title","Login");
+        return "user/login";
     }
+
+
 }

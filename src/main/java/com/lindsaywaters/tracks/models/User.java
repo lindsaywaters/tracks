@@ -1,5 +1,5 @@
 package com.lindsaywaters.tracks.models;
-
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import javax.persistence.Entity;
 
 @Entity
@@ -7,19 +7,20 @@ public class User extends AbstractEntity {
 
     private String username;
 
-    private String password;
 
+
+    private String hashcode;
     private String email;
 
     private String zipcode;
 
-
+    private static final BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
     public User() {
     }
 
     public User(String username, String password, String email, String zipcode) {
         this.username = username;
-        this.password = password;
+        this.hashcode = encoder.encode(password);
         this.email = email;
         this.zipcode = zipcode;
     }
@@ -32,12 +33,9 @@ public class User extends AbstractEntity {
         this.username = username;
     }
 
-    public String getPassword() {
-        return password;
-    }
 
-    public void setPassword(String password) {
-        this.password = password;
+    public void setHashcode(String password) {
+        this.hashcode = encoder.encode(password);
     }
 
     public String getEmail() {
