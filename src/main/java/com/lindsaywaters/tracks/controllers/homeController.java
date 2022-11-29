@@ -30,7 +30,7 @@ public class homeController {
     @GetMapping("userDashboard")
     public String userDashboard(HttpServletRequest request, Model model) {
         User user = userController.getUserInformation(request.getSession());
-        model.addAttribute();
+
         return "user/userDashboard";
 
     }

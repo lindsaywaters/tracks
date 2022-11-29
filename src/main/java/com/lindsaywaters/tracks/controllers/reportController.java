@@ -33,8 +33,8 @@ public class reportController {
         Sighting newSighting = new Sighting(sighting.getSightingDate(), sighting.getSightingTime(), sighting.getDescription(), sighting.getAddress1(), sighting.getAddress2(), sighting.getCity(), sighting.getState(), sighting.getZipcode(), sighting.getLocation() ) ;
         sightingRepository.save(newSighting);
         model.addAttribute(sighting);
-        return "report/createReport";
-//        return "report/reportConfirmation";
+//        return "report/createReport";
+        return "report/reportConfirmation";
     }
 
 }
